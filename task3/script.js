@@ -1,22 +1,12 @@
 
-  function smallestNum(arr) {
-    let range = [];
-    for (let i = Math.max(arr[0], arr[1]); i >= Math.min(arr[0], arr[1]); i--) {
-      range.push(i);
-    }
-
-   let nok = range[0];
-   for (i = 1; i < range.length; i++) {
-    let GCD = nod(nok, range[i]);
-    nok = (nok * range[i]) / GCD;
-  }
-  return nok;
-
-  function nod(a, b)  {
-    if (b === 0)
-      return a;
-    else
-      return nod (b, a % b);
-  }
+  function smallestNum(numberFirst, numberSecond) {
+    let i = 0;
+    let result = true;
+    do {
+        i++;
+        result = ((parseFloat(i%numberFirst) == 0) &&
+                  (parseFloat(i%numberSecond) == 0)) ? false : true;
+    } while(result);
+    alert("Наименьшее общее кратное чисел "+numberFirst+" и "+numberSecond+" = "+i);
+    return i;
 }
-   console.log(smallestNum([4, 12, 14]));
